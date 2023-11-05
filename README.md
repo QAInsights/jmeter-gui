@@ -1,34 +1,39 @@
-# 🚀 Lightweight Apache JMeter Docker Image
+# 🚀 Apache JMeter GUI Docker Image 
 
-This repository contains a Dockerfile for a lightweight Apache JMeter image. The Dockerfile is designed to be small and efficient, while still providing the full functionality of Apache JMeter.
+This repository contains a Dockerfile for a Apache JMeter image which will launch GUI. 
 
 ## ✨ Features
 
-- Based on the small and secure Alpine Linux image.
-- Leverages `bellsoft/liberica-openjdk-alpine` - Liberica JDK is free and 100% open-source Progressive Java Runtime for modern Java deployments. 
-- Includes the Apache JMeter for load testing.
+- Includes the Apache JMeter for development and load testing.
 - Includes a script for installing JMeter plugins.
 - Secured, it will run as `jmeter` - non-root.
 
 ## 🎉 Image Size
 
-- Compressed Size: 165.61 MB
-- Uncompressed Size: 264.48 MB
+- Compressed Size: 550.25 MB
+
+## Prerequisites
+
+### MacOS
+
+- Install [XQuartz](https://www.xquartz.org/)
+- Launch XQuartz > Settings
+- Check `Allow connections from network clients` as shown below
+![XQuartz Settings](./xquartz-settings.png)
 
 ##  🐳 Basic Usage
 
-To build the Docker image, run the following command in the directory containing the Dockerfile:
+To run JMeter in GUI mode, you can use the following commands:
 
 ```bash
-docker build -t my-jmeter-image .
+docker pull qainsights/jmeter-gui:latest
 ```
-
-To run JMeter using the built image, you can use the following command:
+then run
 
 ```bash
-docker run -v /path/to/your/test:/tests my-jmeter-image /tests/your-test.jmx
+chmod +x run.sh
+./run.sh
 ```
-Replace /path/to/your/test with the path to the directory containing your JMeter test, and your-test.jmx with the name of your JMeter test file.
 
 ##  🐳 🐳 Advanced Usage
 
@@ -41,6 +46,10 @@ ARG JMETER_PLUGINS="jpgc-udp=0.4,jpgc-dummy"
 ```
 
 To install specific version add `=` to specify the version, else the latest version will be installed.
+
+```bash
+docker build -t my-jmeter-image .
+```
 
 # 💻 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
