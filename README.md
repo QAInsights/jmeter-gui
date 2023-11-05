@@ -18,7 +18,8 @@ This repository contains a Dockerfile for a Apache JMeter image which will launc
 
 - Install [XQuartz](https://www.xquartz.org/)
 - Launch XQuartz > Settings
-- Check `Allow connections from network clients` as shown below
+- Check `Allow connections from network clients` as shown below  
+
 ![XQuartz Settings](./xquartz-settings.png)
 
 ##  🐳 Basic Usage
